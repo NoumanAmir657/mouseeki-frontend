@@ -1,0 +1,53 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 25vw;
+    height: 100vh;
+}
+
+.center {
+    width: 50vw;
+    height: 100vh;
+    /* background-color: red; */
+}
+
+.activity {
+    width: 25vw;
+    height: 100vh;
+    /* background-color: blueviolet; */
+}
+
+.logo {
+    margin-left: 7%;
+    margin-right: 10%;
+    width: 70%;
+}
+
+.items {
+    height: 100vh;
+}
+
+.item {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 7%;
+    margin-right: 2%;
+    border-radius: 20px;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    padding-left: 5%;
+
+}
+
+.sidebarText {
+    margin-left: 7%;
+    margin-top: 2%;
+    font-family: 'Poppins';
+    font-size: 1vw;
+    font-weight: 600;
+}
