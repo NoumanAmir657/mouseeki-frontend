@@ -1,6 +1,7 @@
 .container {
     display: flex;
     justify-content: space-between;
+    
     width: 100vw;
     height: 100vh;
 }
@@ -8,46 +9,97 @@
 .sidebar {
     width: 25vw;
     height: 100vh;
+    
+    border-right: 1px solid #E0E0E0;
 }
 
 .center {
     width: 50vw;
     height: 100vh;
-    /* background-color: red; */
+    
+    border-right: 1px solid #E0E0E0;
 }
 
 .activity {
     width: 25vw;
     height: 100vh;
-    /* background-color: blueviolet; */
 }
 
-.logo {
-    margin-left: 7%;
-    margin-right: 10%;
+.logoOrange {
     width: 70%;
+
+    position: relative;
+    top: 7vh;
+    
+    margin-left: 15%;
+    margin-right: 10%;
 }
 
 .items {
     height: 100vh;
+    
+    position: relative;
+    top: 7vh;
+    
+    margin-top: 7vh;
 }
 
 .item {
     display: flex;
     justify-content: flex-start;
+    
     margin-left: 7%;
-    margin-right: 2%;
-    border-radius: 20px;
+    margin-right: 7%;
+    
+    border-radius: 17px;
+    
     padding-top: 4%;
     padding-bottom: 4%;
     padding-left: 5%;
-
+    
+    cursor: pointer;
 }
 
 .sidebarText {
     margin-left: 7%;
     margin-top: 2%;
+    
     font-family: 'Poppins';
     font-size: 1vw;
     font-weight: 600;
+}
+
+.frame1Container {
+    width: 95%;
+    height: 30vh;
+    
+    margin-left: 5%;
+    margin-top: 4%;
+}
+
+.aUploadSong {
+    width: 20%;
+
+    margin-left: 5%;
+    margin-top: 2%;
+
+    border: 1px solid #F6654B;
+    border-radius: 10px;
+    
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+
+    color: #F6654B;
+    font-family: 'Poppins';    
+    text-align: center;
+    font-size: x-small;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.aUploadSong:hover {
+    background-color: #F6654B1A;
 }

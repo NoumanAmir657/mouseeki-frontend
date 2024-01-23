@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 import '../styles/Accompaniment.css';
 import SideBarItem from './SideBarItem';
 import sideBarItems from './sideBarItems';
@@ -15,9 +16,9 @@ const Accompaniment = () => {
     const handleClick = (index) => {
         const newItems = []
         for (let i = 0; i < items.length; ++i) {
-            newItems[i] = {...items[i], backgroundColor: BGCOLOR, color: FONTCOLOR}
+            newItems[i] = {...items[i], backgroundColor: BGCOLOR, color: FONTCOLOR, src: items[i].src.replace('_focus', '')}
         }
-        newItems[index] = {...newItems[index], backgroundColor: BGFOCUSCOLOR, color: FONTFOCUSCOLOR}
+        newItems[index] = {...newItems[index], backgroundColor: BGFOCUSCOLOR, color: FONTFOCUSCOLOR, src: newItems[index].src.replace('.svg', '_focus.svg')}
         setItems(newItems)
     }
 
@@ -35,40 +36,25 @@ const Accompaniment = () => {
             </Helmet>
 
             <div className='sidebar'>
-                <div className='logo'>
-                    <img src='logo_orange.svg' width='100%' height='100%' alt='logo'></img>
+                <div className='logoOrange'>
+                    <Link to='/'>
+                        <img src='logo_orange.svg' width='90%' height='90%' alt='logo'></img>
+                    </Link>
                 </div>
                 <div className='items'>
                     {items.map((item, index) => (
                         <SideBarItem key={index} item={item} index={index} handleClick={handleClick}/>
                     ))}
-                    {/* <div className='item' style={{backgroundColor: '#F6654B26'}}>
-                        <img src='speaker.svg' width='9%' height='9%' alt='icon'></img>
-                        <div className='sidebarText' style={{color: '#F6654B'}}>Accompaniment</div>
-                    </div>
-                    <div className='item' style={{backgroundColor: '#FFF'}}>
-                        <img src='levels.svg' width='9%' height='9%' alt='icon'></img>
-                        <div className='sidebarText' style={{color: '#ACACAC'}}>Source Separation</div>
-                    </div>
-                    <div className='item' style={{backgroundColor: '#FFF'}}>
-                        <img src='t_m.svg' width='9%' height='9%' alt='icon'></img>
-                        <div className='sidebarText' style={{color: '#ACACAC'}}>Text-to-Music</div>
-                    </div>
-                    <div className='item' style={{backgroundColor: '#FFF'}}>
-                        <img src='mic.svg' width='9%' height='9%' alt='icon'></img>
-                        <div className='sidebarText' style={{color: '#ACACAC'}}>Karaoke</div>
-                    </div>
-                    <div className='item' style={{backgroundColor: '#FFF'}}>
-                        <img src='tabs.svg' width='9%' height='9%' alt='icon'></img>
-                        <div className='sidebarText' style={{color: '#ACACAC'}}>Guitar Tabs</div>
-                    </div>
-                    <div className='item' style={{backgroundColor: '#FFF'}}>
-                        <img src='music.svg' width='9%' height='9%' alt='icon'></img>
-                        <div className='sidebarText' style={{color: '#ACACAC'}}>Key Change</div>
-                    </div> */}
                 </div>
             </div>
-            <div className='center'></div>
+
+            <div className='center'>
+                <div className='frame1Container'>
+                    <img src='frame_1.svg' width='97%' height='100%' alt='frame1'></img>
+                </div>
+
+                <div className='aUploadSong'>Upload Song</div>
+            </div>
             <div className='activity'></div>
         </div>
         </HelmetProvider>

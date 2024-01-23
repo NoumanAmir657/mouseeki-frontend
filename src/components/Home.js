@@ -23,23 +23,23 @@ const Home = () => {
           <img src='logo.svg' width='100%' height='100%' alt='logo'></img>
         </div>
 
-        <div className='tag' style={{fontFamily: 'Poppins'}}>
-                  Meet Mouseeki<br></br> - your musical<br></br>playground!
+        <div className='tag'>
+          Meet Mouseeki<br></br> - your musical<br></br>playground!
         </div>
 
-        <div className='line' style={{fontFamily: 'Poppins'}}>
+        <div className='line'>
           Create killer tunes, karaoke tracks, and guitar tabs<br></br> effortlessly.
           Change keys with a snap, turn text into<br></br> tunes, and dissect tracks like a music ninja.  
         </div>
 
-        <div className='line2' style={{fontFamily: 'Poppins'}}>
+        <div className='line2'>
           It's your all-in-one toolkit for epic musical adventures! 🚀
         </div>
 
-        <Link to='/accompaniment'>
-            <button className='startButton' style={{fontFamily: 'Poppins'}}>
+        <Link to='/accompaniment' style={{textDecoration: 'none'}}>
+            <div className='startButton'>
                 Start Mouseeki!
-            </button>
+            </div>
         </Link>
 
       </div>

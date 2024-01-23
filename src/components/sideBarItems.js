@@ -8,7 +8,7 @@ const sideBarItems =
     {
         backgroundColor: BGFOCUSCOLOR,
         color: FONTFOCUSCOLOR,
-        src: 'speaker.svg',
+        src: 'speaker_focus.svg',
         text: 'Accompaniment'
     },
     {

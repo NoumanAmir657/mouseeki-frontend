@@ -1,6 +1,7 @@
 .container {
   display: flex;
   justify-content: space-between;
+  
   width: 100vw;
   height: 100vh;
 }
@@ -18,6 +19,7 @@
 .logo {
   width: 18vw;
   height: 18vh;
+  
   position: relative;
   top: 2%;
   left: 10%;
@@ -27,60 +29,80 @@
   position: relative;
   top: 2%;
   left: 10%;
+  
   font-size: 3.5vw;
   color: white;
   font-weight: 700;
+  font-family: 'Poppins';
 }
 
 .line {
   position: relative;
-  margin-top: 3%;
   top: 2%;
   left: 10%;
+
+  margin-top: 3%;
+  
   font-size: 1.5vw;
   font-weight: 400;
+  font-family: 'Poppins';
   color: white;
   line-height: 2vw;
 }
 
 .line2 {
   position: relative;
-  margin-top: 3%;
   top: 2%;
   left: 10%;
+
+  margin-top: 3%;
+
   font-size: 1.5vw;
   font-weight: 600;
+  font-family: 'Poppins';
+  
   color: white;
 }
 
 .startButton {
+  width: 25%;
+
   background-color: #F6654B;
+  
   position: relative;
-  margin-top: 5%;
   top: 2%;
   left: 10%;
+  
+  margin-top: 5%;
+
+  
   font-size: 1.5vw;
   font-weight: 600;
+  font-family: 'Poppins';
   color: white;
+  text-align: center;
+  text-decoration: none;
+
   padding-left: 4%;
   padding-right: 4%;
   padding-top: 2%;
   padding-bottom: 2%;
+  
   border-radius: 20px;
-  border-color: white;
-  border-width: 2px;
+  border: 1px solid white
 }
 
 .startButton:hover {
   background-color: white;
+  
   color: #F6654B;
 }
 
 .cuate {
   width: 35vw;
   height: 85vh;
+  
   position: absolute;
   bottom: 6vh;
   left: 62vw;
 }
-
