@@ -9,7 +9,6 @@ const Player = ({waveFile, waveformRef}) => {
     
     useEffect(() => {
         if (waveFile) {
-          // Initialize WaveSurfer
           const wavesurfer = WaveSurfer.create({
             container: waveformRef.current,
             waveColor: '#E0E0E0',
@@ -26,7 +25,6 @@ const Player = ({waveFile, waveformRef}) => {
 
           wavesurferRef.current = wavesurfer;
     
-          // Clean up on component unmount
           return () => wavesurfer.destroy();
         }
     }, [waveFile, waveformRef]);
@@ -49,7 +47,12 @@ const Player = ({waveFile, waveformRef}) => {
     return (
         <div className='player'>
             <div className='playPause'> 
-                <img src='pause.svg' width='100%' height='100%' alt='pause' onClick={handlePlayPause}></img>
+                {play && (
+                    <img src='play.svg' width='100%' height='100%' alt='pause' onClick={handlePlayPause}></img>
+                )}
+                {!play && (
+                    <img src='pause.svg' width='100%' height='100%' alt='pause' onClick={handlePlayPause}></img>
+                )}
             </div>
             
             {waveFile && (
