@@ -80,6 +80,44 @@ const Accompaniment = () => {
                     <Player waveFile={melody} waveformRef={melodyRef}/>
                 )}
 
+                <div className='instrumentSelection'>
+                    <div className='selectText'>
+                        Select<br></br>Instruments
+                    </div>
+                    <div className='instruments'>
+                        <div className='instrument'>
+                            <div className='instrumentIconContainer'>
+                                <img className='instrumentIcon' src='drums.svg' width='80%' height='80%' alt='icon'></img>
+                            </div>
+                            Drums
+                        </div>
+                        <div className='instrument'>
+                            <div className='instrumentIconContainer'>
+                                <img className='instrumentIcon' src='piano.svg' width='80%' height='80%' alt='icon'></img>
+                            </div>
+                            Piano
+                        </div>
+                        <div className='instrument'>
+                            <div className='instrumentIconContainer'>
+                                <img className='instrumentIcon' src='guitar.svg' width='80%' height='80%' alt='icon'></img>
+                            </div>
+                            Guitar
+                        </div>
+                        <div className='instrument'>
+                            <div className='instrumentIconContainer'>
+                                <img className='instrumentIcon' src='halftime.svg' width='80%' height='80%' alt='icon'></img>
+                            </div>
+                            Half
+                        </div>
+                        <div className='instrument'>
+                            <div className='instrumentIconContainer'>
+                                <img className='instrumentIcon' src='doubletime.svg' width='80%' height='80%' alt='icon'></img>
+                            </div>
+                            Double
+                        </div>
+                    </div>
+                </div>
+
             </div>
             <div className='activity'></div>
         </div>
