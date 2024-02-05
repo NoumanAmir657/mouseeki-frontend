@@ -87,13 +87,11 @@ const Accompaniment = () => {
                         <Player waveFile={melody} waveformRef={melodyRef}/>
                         <InstrumentSelection instruments={instruments} setInstruments={setInstruments}/>
                         <GenerateAccompaniment instruments={instruments} melody={melody} setAccompaniment={setAccompaniment}/>
+                        {accompaniment && (
+                            <AccompanimentPlayer waveFile={accompaniment} waveformRef={accompanimentRef}/>
+                        )}
                     </>  
                 )}
-
-                {accompaniment && (
-                    <AccompanimentPlayer waveFile={accompaniment} waveformRef={accompanimentRef}/>
-                )}
-
             </div>
             <div className='activity'></div>
         </div>
