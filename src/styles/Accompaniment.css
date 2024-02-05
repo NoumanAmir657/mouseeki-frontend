@@ -122,8 +122,8 @@
 .playPause {
     width: 3%;
     
-    margin-top: 2%;
-    margin-bottom: 2%;
+    margin-top: auto;
+    margin-bottom: auto;
     margin-left: 3%;
     
     cursor: pointer;
@@ -143,7 +143,8 @@
     width: 15%;
     
     margin-left: 3%;
-    margin-top: 3%;
+    margin-top: auto;
+    margin-bottom: auto;
     margin-right: 2%;
 }
 
@@ -182,7 +183,8 @@
 
 .uploadWave {
     width: 82%;
-    margin-top: 2.8%;
+    margin-top: auto;
+    margin-bottom: auto;
     margin-left: 3%;
 }
 
@@ -191,7 +193,7 @@
     justify-content: flex-start;
 
     width: 90%;
-    height: 15vh;
+    height: 12vh;
 
     margin-left: 5%;
     margin-top: 3%;
@@ -223,7 +225,7 @@
 
     margin-top: auto;
     margin-bottom: auto;
-    margin-left: 5%;
+    margin-left: 10%;
 }
 
 .instrument {

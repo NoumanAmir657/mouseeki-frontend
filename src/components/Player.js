@@ -9,7 +9,7 @@ const Player = ({waveFile, waveformRef}) => {
     
     useEffect(() => {
         if (waveFile) {
-          const wavesurfer = WaveSurfer.create({
+            const wavesurfer = WaveSurfer.create({
             container: waveformRef.current,
             waveColor: '#E0E0E0',
             progressColor: '#F6654B',
@@ -19,13 +19,13 @@ const Player = ({waveFile, waveformRef}) => {
             barGap: 2,
             height: 30,
             barHeight: 0,
-          });
-    
-          wavesurfer.load(URL.createObjectURL(waveFile));
+            });
 
-          wavesurferRef.current = wavesurfer;
-    
-          return () => wavesurfer.destroy();
+            wavesurfer.load(URL.createObjectURL(waveFile));
+
+            wavesurferRef.current = wavesurfer;
+            
+            return () => wavesurfer.destroy();
         }
     }, [waveFile, waveformRef]);
 
