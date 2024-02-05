@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import WaveSurfer from 'wavesurfer.js';
 import '../styles/Accompaniment.css'
 
-const Player = ({waveFile, waveformRef}) => {
+const AccompanimentPlayer = ({waveFile, waveformRef}) => {
     const [play, setPlay] = useState(false)
     const [volume, setVolume] = useState(1)
     const wavesurferRef = useRef(null);
@@ -12,7 +12,7 @@ const Player = ({waveFile, waveformRef}) => {
             const wavesurfer = WaveSurfer.create({
             container: waveformRef.current,
             waveColor: '#E0E0E0',
-            progressColor: '#F6654B',
+            progressColor: '#FFD88B',
             responsive: true,
             barWidth: 2,
             barRadius: 10,
@@ -45,13 +45,13 @@ const Player = ({waveFile, waveformRef}) => {
     };
 
     return (
-        <div className='player'>
+        <div className='player' style={{backgroundColor: '#F6654B'}}>
             <div className='playPause'> 
                 {play && (
-                    <img src='play.svg' width='100%' height='100%' alt='pause' onClick={handlePlayPause}></img>
+                    <img src='play_orange.svg' width='100%' height='100%' alt='pause' onClick={handlePlayPause}></img>
                 )}
                 {!play && (
-                    <img src='pause.svg' width='100%' height='100%' alt='pause' onClick={handlePlayPause}></img>
+                    <img src='pause_orange.svg' width='100%' height='100%' alt='pause' onClick={handlePlayPause}></img>
                 )}
             </div>
             
@@ -65,7 +65,7 @@ const Player = ({waveFile, waveformRef}) => {
 
             <div className='volumeControl'>
                 <input
-                    className='slider1'
+                    className='slider2'
                     type="range"
                     min="0"
                     max="1"
@@ -78,4 +78,4 @@ const Player = ({waveFile, waveformRef}) => {
     )
 }
 
-export default Player;
+export default AccompanimentPlayer;

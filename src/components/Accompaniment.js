@@ -5,6 +5,9 @@ import '../styles/Accompaniment.css';
 import SideBarItem from './SideBarItem';
 import sideBarItems from './sideBarItems';
 import Player from './Player';
+import InstrumentSelection from './InstrumentSelection';
+import GenerateAccompaniment from './GenerateAccompaniment';
+import AccompanimentPlayer from './AccompanimentPlayer';
 
 const BGFOCUSCOLOR = '#F6654B26'
 const FONTFOCUSCOLOR = '#F6654B'
@@ -14,7 +17,10 @@ const FONTCOLOR = '#ACACAC'
 const Accompaniment = () => {
     const [items, setItems] = useState(sideBarItems)
     const [melody, setMelody] = useState(null)
+    const [instruments, setInstruments] = useState([false, false, false, false, false])
+    const [accompaniment, setAccompaniment] = useState(null)
     const melodyRef = useRef(null)
+    const accompanimentRef = useRef(null)
 
     const handleClick = (index) => {
         const newItems = []
@@ -77,46 +83,16 @@ const Accompaniment = () => {
                 <div className='aUploadSong' onClick={() => document.getElementById('fileLoader').click()}>Upload Song</div>
 
                 {melody && (
-                    <Player waveFile={melody} waveformRef={melodyRef}/>
+                    <>
+                        <Player waveFile={melody} waveformRef={melodyRef}/>
+                        <InstrumentSelection instruments={instruments} setInstruments={setInstruments}/>
+                        <GenerateAccompaniment instruments={instruments} melody={melody} setAccompaniment={setAccompaniment}/>
+                    </>  
                 )}
 
-                <div className='instrumentSelection'>
-                    <div className='selectText'>
-                        Select<br></br>Instruments
-                    </div>
-                    <div className='instruments'>
-                        <div className='instrument'>
-                            <div className='instrumentIconContainer'>
-                                <img className='instrumentIcon' src='drums.svg' width='80%' height='80%' alt='icon'></img>
-                            </div>
-                            Drums
-                        </div>
-                        <div className='instrument'>
-                            <div className='instrumentIconContainer'>
-                                <img className='instrumentIcon' src='piano.svg' width='80%' height='80%' alt='icon'></img>
-                            </div>
-                            Piano
-                        </div>
-                        <div className='instrument'>
-                            <div className='instrumentIconContainer'>
-                                <img className='instrumentIcon' src='guitar.svg' width='80%' height='80%' alt='icon'></img>
-                            </div>
-                            Guitar
-                        </div>
-                        <div className='instrument'>
-                            <div className='instrumentIconContainer'>
-                                <img className='instrumentIcon' src='halftime.svg' width='80%' height='80%' alt='icon'></img>
-                            </div>
-                            Half
-                        </div>
-                        <div className='instrument'>
-                            <div className='instrumentIconContainer'>
-                                <img className='instrumentIcon' src='doubletime.svg' width='80%' height='80%' alt='icon'></img>
-                            </div>
-                            Double
-                        </div>
-                    </div>
-                </div>
+                {accompaniment && (
+                    <AccompanimentPlayer waveFile={accompaniment} waveformRef={accompanimentRef}/>
+                )}
 
             </div>
             <div className='activity'></div>
