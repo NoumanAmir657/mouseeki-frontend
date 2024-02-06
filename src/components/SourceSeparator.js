@@ -2,10 +2,24 @@ import { useState, useRef } from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import '../styles/SourceSeparator.css';
 import SideBar from './SideBar';
+import Player from './Player';
+import GenerateSources from './GenerateSources';
 
 const SourceSeparator = ({items, setItems}) => {
     const [song, setSong] = useState(null)
     const songRef = useRef(null)
+
+    const [vocals, setVocals] = useState(null)
+    const vocalsRef = useRef(null)
+
+    const [instrumental, setInstrumental] = useState(null)
+    const instrumentalRef = useRef(null)
+
+    const [drums, setDrums] = useState(null)
+    const drumsRef = useRef(null)
+
+    const [bass, setBass] = useState(null)
+    const bassRef = useRef(null)
 
     const handleFileChange = (event) => {
         const selectedSong = event.target.files[0];
@@ -35,12 +49,24 @@ const SourceSeparator = ({items, setItems}) => {
             <SideBar items={items} setItems={setItems}/>
 
             <div className='center'>
-                <div className='frame1Container'>
+                <div className='frameContainer'>
                     <img src='frame_2.svg' width='97%' height='100%' alt='frame1'></img>
                 </div>
                 
                 <input id='fileLoader' ref={songRef} type='file' onChange={handleFileChange}/>
                 <div className='aUploadSong' onClick={() => document.getElementById('fileLoader').click()}>Upload Song</div>
+
+                {song && (
+                    <>
+                        <Player waveFile={song} waveformRef={songRef}/>
+                        <GenerateSources 
+                        song={song} 
+                        setVocals={setVocals} 
+                        setInstrumental={setInstrumental} 
+                        setDrums={setDrums}
+                        setBass={setBass}/>
+                    </>
+                )}
             </div>
             <div className='activity'></div>
         </div>

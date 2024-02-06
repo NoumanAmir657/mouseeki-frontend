@@ -42,7 +42,7 @@ const Accompaniment = ({items, setItems}) => {
             <SideBar items={items} setItems={setItems}/>
 
             <div className='center'>
-                <div className='frame1Container'>
+                <div className='frameContainer'>
                     <img src='frame_1.svg' width='97%' height='100%' alt='frame1'></img>
                 </div>
                 

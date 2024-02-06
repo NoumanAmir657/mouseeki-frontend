@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import sideBarItems from './components/sideBarItems';
 import Home from "./components/Home";
@@ -7,6 +7,17 @@ import SourceSeparator from "./components/SourceSeparator";
 
 const App = () => {
   const [items, setItems] = useState(sideBarItems)
+  
+  useEffect(() => {
+    let saved = localStorage.getItem('items')
+    if (saved) {
+      setItems(JSON.parse(saved))
+    }
+    else {
+      setItems(sideBarItems)
+    }
+  }, [items])
+  
   return(
     <Router>
       <Routes>
