@@ -4,10 +4,13 @@ import '../styles/SourceSeparator.css';
 import SideBar from './SideBar';
 import Player from './Player';
 import GenerateSources from './GenerateSources';
+import Sources from './Sources';
 
 const SourceSeparator = ({items, setItems}) => {
     const [song, setSong] = useState(null)
     const songRef = useRef(null)
+    
+    const allRef = useRef(null)
 
     const [vocals, setVocals] = useState(null)
     const vocalsRef = useRef(null)
@@ -65,6 +68,21 @@ const SourceSeparator = ({items, setItems}) => {
                         setInstrumental={setInstrumental} 
                         setDrums={setDrums}
                         setBass={setBass}/>
+                        
+                        {vocals && instrumental && drums && bass && (
+                            <Sources
+                            allRef={allRef} 
+                            vocalsRef={vocalsRef} 
+                            instrumentalRef={instrumentalRef} 
+                            drumsRef={drumsRef}
+                            bassRef={bassRef} 
+                            song={song} 
+                            vocals={vocals} 
+                            instrumental={instrumental}
+                            drums={drums}
+                            bass={bass}/>
+                        )}
+
                     </>
                 )}
             </div>

@@ -125,6 +125,35 @@
     cursor: pointer;
 }
 
+.slider2 {
+    -webkit-appearance: none;
+    margin-right: 2%;
+    margin-left: 20%;
+    width: 80%;
+    height: 1vh;
+    border-radius: 5px;
+    background: #E0E0E0;
+    outline: none;
+    opacity: 0.9;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    margin-top: 3%;
+}
+  
+.slider2:hover {
+    opacity: 1;
+}
+
+.slider2::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #FFF !important;
+    cursor: pointer;
+}
+
 #fileLoader {
     display: none;
 }
@@ -163,4 +192,63 @@
 
 .generateSourcesBtn:hover {
     background-color: #FF8069;
+}
+
+.volumeContainer {
+    display: flex;
+    justify-content: flex-start;
+
+    width: 90%;
+    height: 15vh;
+
+    margin-left: 5%;
+    margin-top: 3%;
+
+    border: 1px solid #CECECE;
+    border-radius: 10px;
+
+    background-color: #F6654B;
+}
+
+.control {
+    width: 20%;
+    height: 80%;
+
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 0.5%;
+}
+
+.volumes {
+    width: 80%;
+    height: 80%;
+    
+    display: flex;
+    flex-wrap: wrap;
+
+    margin-top: 2.5%;
+    margin-right: 2%;
+}
+
+.volumes > div {
+    flex-basis: calc(50% - 1%);
+}
+
+.volume {
+    width: 50%;
+    height: 40%;
+
+    display: flex;
+
+    margin-left: 1%;
+    margin-top: 1%;
+
+    font-family: 'Poppins';
+    font-size: x-small;
+    font-weight: 600;
+    color: #FFF;
+}
+
+.controlsVolume {
+    width: 70%;
 }

@@ -8,7 +8,6 @@ const BGCOLOR = '#FFF'
 const FONTCOLOR = '#ACACAC'
 
 const SideBar = ({items, setItems}) => {
-    console.log(items)
     const handleClick = (index) => {
         const newItems = []
         for (let i = 0; i < items.length; ++i) {
@@ -16,8 +15,6 @@ const SideBar = ({items, setItems}) => {
         }
         newItems[index] = {...newItems[index], backgroundColor: BGFOCUSCOLOR, color: FONTFOCUSCOLOR, src: newItems[index].src.replace('.svg', '_focus.svg')}
         setItems(newItems)
-
-        localStorage.setItem('items', JSON.stringify(newItems))
     }
 
     return (
