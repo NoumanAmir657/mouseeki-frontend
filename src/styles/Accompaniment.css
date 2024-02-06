@@ -6,13 +6,6 @@
     height: 100vh;
 }
 
-.sidebar {
-    width: 25vw;
-    height: 100vh;
-    
-    border-right: 1px solid #E0E0E0;
-}
-
 .center {
     width: 50vw;
     height: 100vh;
@@ -23,50 +16,6 @@
 .activity {
     width: 25vw;
     height: 100vh;
-}
-
-.logoOrange {
-    width: 70%;
-
-    position: relative;
-    top: 7vh;
-    
-    margin-left: 15%;
-    margin-right: 10%;
-}
-
-.items {
-    height: 100vh;
-    
-    position: relative;
-    top: 7vh;
-    
-    margin-top: 7vh;
-}
-
-.item {
-    display: flex;
-    justify-content: flex-start;
-    
-    margin-left: 7%;
-    margin-right: 7%;
-    
-    border-radius: 17px;
-    
-    padding-top: 4%;
-    padding-bottom: 4%;
-    padding-left: 5%;
-    
-    cursor: pointer;
-}
-
-.sidebarText {
-    margin-left: 7%;
-    margin-top: 2%;
-    
-    font-family: 'Poppins';
-    font-size: 1vw;
-    font-weight: 600;
 }
 
 .frame1Container {

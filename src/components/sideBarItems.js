@@ -9,37 +9,43 @@ const sideBarItems =
         backgroundColor: BGFOCUSCOLOR,
         color: FONTFOCUSCOLOR,
         src: 'speaker_focus.svg',
-        text: 'Accompaniment'
+        text: 'Accompaniment',
+        link: '/accompaniment',
     },
     {
         backgroundColor: BGCOLOR,
         color: FONTCOLOR,
         src: 'levels.svg',
-        text: 'Source Separation'
+        text: 'Source Separation',
+        link: '/sourceSeparation',
     },
     {
         backgroundColor: BGCOLOR,
         color: FONTCOLOR,
         src: 't_m.svg',
-        text: 'Text-to-Music'
+        text: 'Text-to-Music',
+        link: '/textToMusic',
     },
     {
         backgroundColor: BGCOLOR,
         color: FONTCOLOR,
         src: 'mic.svg',
-        text: 'Karaoke'
+        text: 'Karaoke',
+        link: '/karaoke',
     },
     {
         backgroundColor: BGCOLOR,
         color: FONTCOLOR,
         src: 'tabs.svg',
-        text: 'Guitar Tabs'
+        text: 'Guitar Tabs',
+        link: '/guitarTabs',
     },
     {
         backgroundColor: BGCOLOR,
         color: FONTCOLOR,
         src: 'music.svg',
-        text: 'Key Change'
+        text: 'Key Change',
+        link: '/keyChange',
     }
 ]
 

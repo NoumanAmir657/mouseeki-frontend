@@ -1,0 +1,49 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    
+    width: 100vw;
+    height: 100vh;
+}
+
+.center {
+    width: 50vw;
+    height: 100vh;
+    
+    border-right: 1px solid #E0E0E0;
+}
+
+.frame1Container {
+    width: 95%;
+    height: 30vh;
+    
+    margin-left: 5%;
+    margin-top: 4%;
+}
+
+.aUploadSong {
+    width: 20%;
+
+    margin-left: 5%;
+    margin-top: 2%;
+
+    border: 1px solid #F6654B;
+    border-radius: 10px;
+    
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+
+    color: #F6654B;
+    font-family: 'Poppins';    
+    text-align: center;
+    font-size: x-small;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.aUploadSong:hover {
+    background-color: #F6654B1A;
+}
