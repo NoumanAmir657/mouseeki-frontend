@@ -6,6 +6,7 @@ import KaraokePlayer from './KaraokePlayer';
 
 const Karaoke = ({items, setItems}) => {
     const [instrumental, setInstrumental] = useState(null)
+    const [words, setWords] = useState(null)
     const [lyrics, setLyrics] = useState(null)
     const songRef = useRef(null)
     const instrumentalRef = useRef(null)
@@ -35,16 +36,22 @@ const Karaoke = ({items, setItems}) => {
                 const lyricsFile = zipFiles.file('lyrics.vtt')
                 const vttText = await lyricsFile.async('text')
 
-                const parser = new WebVTTParser();
-                const tree = parser.parse(vttText, 'metadata');
-                const parsedLyrics = tree.cues.map(x => {
-                    const startTime = x.startTime
-                    const endTime = x.endTime
-                    const text = x.text
-                    return {startTime, endTime, text}
-                })
+                const wordsFile = zipFiles.file('lyrics_words.vtt')
+                const wordsText = await wordsFile.async('text')
 
-                setLyrics(parsedLyrics);
+                const parseVTT = (text) => {
+                    const parser = new WebVTTParser();
+                    const tree = parser.parse(text, 'metadata');
+                    return tree.cues.map(x => {
+                        const startTime = x.startTime
+                        const endTime = x.endTime
+                        const text = x.text
+                        return {startTime, endTime, text}
+                    })
+                }
+                
+                setLyrics(parseVTT(vttText));
+                setWords(parseVTT(wordsText))
                 setInstrumental(ins)
                 
             } else {
@@ -74,9 +81,9 @@ const Karaoke = ({items, setItems}) => {
                 <input id='fileLoader' ref={songRef} type='file' onChange={handleSend}/>
                 <div className='aUploadSong' onClick={() => document.getElementById('fileLoader').click()}>Upload Song</div>
 
-                {instrumental && (
+                {instrumental && lyrics && words && (
                     <>
-                    <KaraokePlayer waveFile={instrumental} waveformRef={instrumentalRef} lyrics={lyrics}/>
+                        <KaraokePlayer waveFile={instrumental} waveformRef={instrumentalRef} lyrics={lyrics} words={words}/>
                     </>
                 )}
             </div>

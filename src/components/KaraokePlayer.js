@@ -2,10 +2,10 @@ import { useState, useRef, useEffect } from 'react';
 import WaveSurfer from 'wavesurfer.js';
 import '../styles/Karaoke.css'
 
-const KaraokePlayer = ({waveFile, waveformRef, lyrics}) => {
+const KaraokePlayer = ({waveFile, waveformRef, lyrics, words}) => {
     const [play, setPlay] = useState(false)
     const [volume, setVolume] = useState(1)
-    const [currentLyric, setCurrentLyric] = useState("")
+    const [rex, setRex] = useState("")
     const wavesurferRef = useRef(null);
     
     useEffect(() => {
@@ -25,9 +25,22 @@ const KaraokePlayer = ({waveFile, waveformRef, lyrics}) => {
             wavesurfer.load(URL.createObjectURL(waveFile));
 
             wavesurfer.on('timeupdate', (currentTime) => {
+                let re = ''
                 for (let i = 0; i < lyrics.length; i++) {
                     if (currentTime > lyrics[i].startTime && currentTime < lyrics[i].endTime) {
-                        setCurrentLyric(lyrics[i].text);
+                        for (let k = 0; k < words.length; ++k) {
+                            if (words[k].endTime > lyrics[i].endTime) {break}
+                            if (words[k].startTime >= lyrics[i].startTime && words[k].endTime <= lyrics[i].endTime) {
+                                if (currentTime > words[k].startTime && currentTime < words[k].endTime) {
+                                    re += `<span style="color: red;">` + words[k].text + `</span> ` 
+                                }
+                                else {
+                                    re += `<span>` + words[k].text + `</span> `
+                                }
+                            }
+                        }
+                        console.log(re)
+                        setRex(re)
                         break;
                     }
                 }
@@ -88,7 +101,7 @@ const KaraokePlayer = ({waveFile, waveformRef, lyrics}) => {
         </div>
 
         <div className='lyricsContainer'>
-            {currentLyric}
+            <div dangerouslySetInnerHTML={{ __html: rex }} />
         </div>
         </>
     )
