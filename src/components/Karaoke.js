@@ -2,9 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { WebVTTParser } from 'webvtt-parser';
 import SideBar from './SideBar';
-import Player from './Player';
-import AudioPlayer from './AudioPlayer';
-import LyricsDisplay from './LyricsDisplay';
+import KaraokePlayer from './KaraokePlayer';
 
 const Karaoke = ({items, setItems}) => {
     const [instrumental, setInstrumental] = useState(null)
@@ -74,11 +72,11 @@ const Karaoke = ({items, setItems}) => {
 
             <div className='center'>
                 <input id='fileLoader' ref={songRef} type='file' onChange={handleSend}/>
-                <div className='aUploadSong' onClick={() => document.getElementById('fileLoader').click()}>Upload Melody</div>
+                <div className='aUploadSong' onClick={() => document.getElementById('fileLoader').click()}>Upload Song</div>
 
                 {instrumental && (
                     <>
-                    <Player waveFile={instrumental} waveformRef={instrumentalRef}/>
+                    <KaraokePlayer waveFile={instrumental} waveformRef={instrumentalRef} lyrics={lyrics}/>
                     </>
                 )}
             </div>

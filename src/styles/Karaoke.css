@@ -123,3 +123,16 @@
     margin-bottom: auto;
     margin-left: 3%;
 }
+
+.lyricsContainer {
+    width: 90%;
+
+    color: black;
+    text-align: center;
+    font-family: 'Poppins';
+    font-size: larger;
+    font-weight: 800;
+
+    margin-left: 5%;
+    margin-top: 3%;
+}
