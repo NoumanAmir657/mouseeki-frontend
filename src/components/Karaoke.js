@@ -3,8 +3,10 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { WebVTTParser } from 'webvtt-parser';
 import SideBar from './SideBar';
 import KaraokePlayer from './KaraokePlayer';
+import Player from './Player';
 
 const Karaoke = ({items, setItems}) => {
+    const [song, setSong] = useState(null)
     const [instrumental, setInstrumental] = useState(null)
     const [words, setWords] = useState(null)
     const [lyrics, setLyrics] = useState(null)
@@ -14,6 +16,7 @@ const Karaoke = ({items, setItems}) => {
     const handleSend = async (event) => {
         const formData = new FormData();
         formData.append('audioFile', event.target.files[0]);
+        setSong(event.target.files[0])
 
         try {
             // Dynamic import of jszip
@@ -83,6 +86,7 @@ const Karaoke = ({items, setItems}) => {
 
                 {instrumental && lyrics && words && (
                     <>
+                        <Player waveFile={song} waveformRef={songRef}/>
                         <KaraokePlayer waveFile={instrumental} waveformRef={instrumentalRef} lyrics={lyrics} words={words}/>
                     </>
                 )}

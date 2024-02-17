@@ -13,7 +13,7 @@ const KaraokePlayer = ({waveFile, waveformRef, lyrics, words}) => {
             const wavesurfer = WaveSurfer.create({
             container: waveformRef.current,
             waveColor: '#E0E0E0',
-            progressColor: '#F6654B',
+            progressColor: '#FFD88B',
             responsive: true,
             barWidth: 2,
             barRadius: 10,
@@ -32,14 +32,13 @@ const KaraokePlayer = ({waveFile, waveformRef, lyrics, words}) => {
                             if (words[k].endTime > lyrics[i].endTime) {break}
                             if (words[k].startTime >= lyrics[i].startTime && words[k].endTime <= lyrics[i].endTime) {
                                 if (currentTime > words[k].startTime && currentTime < words[k].endTime) {
-                                    re += `<span style="color: red;">` + words[k].text + `</span> ` 
+                                    re += `<span style="color: #F6654B;">` + words[k].text + `</span> ` 
                                 }
                                 else {
                                     re += `<span>` + words[k].text + `</span> `
                                 }
                             }
                         }
-                        console.log(re)
                         setRex(re)
                         break;
                     }
@@ -69,13 +68,13 @@ const KaraokePlayer = ({waveFile, waveformRef, lyrics, words}) => {
 
     return (
         <>
-        <div className='player'>
+        <div className='player' style={{backgroundColor: '#F6654B'}}>
             <div className='playPause'> 
                 {play && (
-                    <img src='play.svg' width='100%' height='100%' alt='pause' onClick={handlePlayPause}></img>
+                    <img src='play_orange.svg' width='100%' height='100%' alt='pause' onClick={handlePlayPause}></img>
                 )}
                 {!play && (
-                    <img src='pause.svg' width='100%' height='100%' alt='pause' onClick={handlePlayPause}></img>
+                    <img src='pause_orange.svg' width='100%' height='100%' alt='pause' onClick={handlePlayPause}></img>
                 )}
             </div>
             
@@ -89,7 +88,7 @@ const KaraokePlayer = ({waveFile, waveformRef, lyrics, words}) => {
 
             <div className='volumeControl'>
                 <input
-                    className='slider1'
+                    className='slider2'
                     type="range"
                     min="0"
                     max="1"
