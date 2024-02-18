@@ -165,3 +165,32 @@
     background: #FFF !important;
     cursor: pointer;
 }
+
+.generateKaraokeBtn {
+    width: 22%;
+
+    margin-left: 5%;
+    margin-top: 2%;
+
+    background-color: #F6654B;
+
+    border: 1px solid #F6654B;
+    border-radius: 10px;
+    
+    padding-left: 1.5%;
+    padding-right: 1.5%;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+
+    color: #FFFFFF;
+    font-family: 'Poppins';    
+    text-align: center;
+    font-size: small;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.generateKaraokeBtn:hover {
+    background-color: #FF8069;
+}
