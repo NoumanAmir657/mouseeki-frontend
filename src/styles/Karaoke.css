@@ -13,6 +13,14 @@
     border-right: 1px solid #E0E0E0;
 }
 
+.frameContainer {
+    width: 95%;
+    height: 30vh;
+    
+    margin-left: 5%;
+    margin-top: 4%;
+}
+
 .activity {
     width: 25vw;
     height: 100vh;

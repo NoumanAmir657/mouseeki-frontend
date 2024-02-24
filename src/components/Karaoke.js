@@ -41,6 +41,10 @@ const Karaoke = ({items, setItems}) => {
             <SideBar items={items} setItems={setItems}/>
 
             <div className='center'>
+                <div className='frameContainer'>
+                    <img src='frame_3.svg' width='97%' height='100%' alt='frame1'></img>
+                </div>
+                
                 <input id='fileLoader' ref={songRef} type='file' onChange={handleFileChange}/>
                 <div className='aUploadSong' onClick={() => document.getElementById('fileLoader').click()}>Upload Song</div>
                 
