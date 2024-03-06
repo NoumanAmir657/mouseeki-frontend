@@ -1,0 +1,133 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    
+    width: 100vw;
+    height: 100vh;
+}
+
+.center {
+    width: 50vw;
+    height: 100vh;
+    
+    border-right: 1px solid #E0E0E0;
+}
+
+.frameContainer {
+    width: 95%;
+    height: 30vh;
+    
+    margin-left: 5%;
+    margin-top: 4%;
+}
+
+.activity {
+    width: 25vw;
+    height: 100vh;
+}
+
+.aUploadSong {
+    width: 20%;
+
+    margin-left: 5%;
+    margin-top: 2%;
+
+    border: 1px solid #F6654B;
+    border-radius: 10px;
+    
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+
+    color: #F6654B;
+    font-family: 'Poppins';    
+    text-align: center;
+    font-size: x-small;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.aUploadSong:hover {
+    background-color: #F6654B1A;
+}
+
+.player {
+    display: flex;
+    justify-content: flex-start;
+
+    width: 90%;
+    height: 10vh;
+
+    margin-left: 5%;
+    margin-top: 3%;
+
+    border: 1px solid #CECECE;
+    border-radius: 10px;
+}
+
+.playPause {
+    width: 3%;
+    
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 3%;
+    
+    cursor: pointer;
+}
+
+.playerLine {
+    width: 82%;
+    height: 0%;
+
+    border: 1px dotted #E0E0E0;
+
+    margin-top: 5%;
+    margin-left: 3%;
+}
+
+.uploadWave {
+    width: 82%;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 3%;
+}
+
+.shiftBtn {
+    width: 20%;
+
+    margin-left: 5%;
+    margin-top: 2%;
+
+    background-color: #F6654B;
+
+    border: 1px solid #F6654B;
+    border-radius: 10px;
+    
+    padding-left: 1.5%;
+    padding-right: 1.5%;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+
+    color: #FFFFFF;
+    font-family: 'Poppins';    
+    text-align: center;
+    font-size: small;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.shiftBtn:hover {
+    background-color: #FF8069;
+}
+
+.shift {
+    display: flex;
+    justify-content: center;
+
+    margin-right: 3vw;
+    margin-left: 0.5vw;
+    margin-top: 2vh;
+}

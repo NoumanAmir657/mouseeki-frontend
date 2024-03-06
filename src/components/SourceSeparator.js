@@ -53,7 +53,7 @@ const SourceSeparator = ({items, setItems}) => {
 
             <div className='center'>
                 <div className='frameContainer'>
-                    <img src='frame_2.svg' width='97%' height='100%' alt='frame1'></img>
+                    <img src='frame_2.svg' width='97%' height='100%' alt='frame2'></img>
                 </div>
                 
                 <input id='fileLoader' ref={songRef} type='file' onChange={handleFileChange}/>
