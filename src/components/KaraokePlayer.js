@@ -2,11 +2,12 @@ import { useState, useRef, useEffect } from 'react';
 import WaveSurfer from 'wavesurfer.js';
 import '../styles/Karaoke.css'
 
-const KaraokePlayer = ({waveFile, waveformRef, lyrics, words}) => {
+const KaraokePlayer = ({waveFile, waveformRef, lyrics, words, pitches, original}) => {
     const [play, setPlay] = useState(false)
     const [volume, setVolume] = useState(1)
     const [rex, setRex] = useState("")
     const wavesurferRef = useRef(null);
+    const [focus, setFocus] = useState([false, false, false, false, true])    
     
     useEffect(() => {
         if (waveFile) {
@@ -23,6 +24,7 @@ const KaraokePlayer = ({waveFile, waveformRef, lyrics, words}) => {
             });
 
             wavesurfer.load(URL.createObjectURL(waveFile));
+            wavesurfer.setVolume(0)
 
             wavesurfer.on('timeupdate', (currentTime) => {
                 let re = ''
@@ -51,19 +53,58 @@ const KaraokePlayer = ({waveFile, waveformRef, lyrics, words}) => {
         }
     }, [waveFile, waveformRef]);
 
-    const handlePlayPause = (event) => {
-        setPlay(!play)
-        wavesurferRef.current.playPause();
-    };
-
     const handleWaveformClick = (event) => {
         wavesurferRef.current.seekTo(event.nativeEvent.offsetX / waveformRef.current.clientWidth)
-    };
+        for (let i = 0; i < pitches.length; ++i) {
+            pitches[i].seek(wavesurferRef.current.getDuration() * (event.nativeEvent.offsetX / waveformRef.current.clientWidth))
+        }
+        original.seek(wavesurferRef.current.getDuration() * (event.nativeEvent.offsetX / waveformRef.current.clientWidth))
+    }
 
     const handleVolumeChange = (event) => {
         const newVolume = parseFloat(event.target.value);
         setVolume(newVolume);
         wavesurferRef.current.setVolume(newVolume);
+    };
+
+    const handlePlayPause = () => {
+        if (!play) {
+            original.start()
+            for (let i = 0; i < pitches.length; ++i) {
+                pitches[i].start();
+            }
+        }
+        else {
+            original.stop()
+            for (let i = 0; i < pitches.length; ++i) {
+                pitches[i].stop();
+            }
+        }
+        setPlay(!play)
+        wavesurferRef.current.playPause();
+    };
+
+    const handlePitchChange = (index) => {
+        const newFocus = []
+        for (let i = 0; i < pitches.length; ++i) {
+            if (index === i) {
+                pitches[i].volume.value = 0;
+                newFocus.push(true)
+            } else {
+                pitches[i].volume.value = -Infinity;
+                newFocus.push(false)
+            }
+        }
+
+        if (index === 5) {
+            original.volume.value = 0;
+            newFocus.push(true)
+        } else {
+            original.volume.value = -Infinity;
+            newFocus.push(false)
+        }
+
+        setFocus(newFocus)
     };
 
     return (
@@ -98,10 +139,22 @@ const KaraokePlayer = ({waveFile, waveformRef, lyrics, words}) => {
                 />
             </div>
         </div>
+        
+        <div style={{display: 'flex', marginLeft: '16%'}}>
+                <div className={focus[0] ? `focusBtn` : `unFocusBtn`} onClick={() => handlePitchChange(0)}>1 Down</div>
+                <div className={focus[1] ? `focusBtn` : `unFocusBtn`} onClick={() => handlePitchChange(1)}>1/2 Down</div>
+
+                <div className={focus[4] ? `focusBtn` : `unFocusBtn`} onClick={() => handlePitchChange(5)}>Original</div>
+
+                <div className={focus[2] ? `focusBtn` : `unFocusBtn`} onClick={() => handlePitchChange(2)}>1/2 Up</div>
+                <div className={focus[3] ? `focusBtn` : `unFocusBtn`} onClick={() => handlePitchChange(3)}>1 Up</div>
+        </div>
 
         <div className='lyricsContainer'>
             <div dangerouslySetInnerHTML={{ __html: rex }} />
         </div>
+            
+
         </>
     )
 }

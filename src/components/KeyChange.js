@@ -1,7 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import * as Tone from 'tone';
-import WaveSurfer from 'wavesurfer.js';
 import SideBar from './SideBar';
 import '../styles/KeyChange.css';
 import KeyChangePlayer from './KeyChangePlayer';
@@ -10,11 +9,10 @@ const PITCHCHANGE = [-2, -1, 1, 2];
 
 const KeyChange = ({items, setItems}) => {
     const [audio, setAudio] = useState(null)
-    const [audioFile, setAudioFile] = useState(null);
+    // const [audioFile, setAudioFile] = useState(null);
     const [pitches, setPitches] = useState([]);
     const [original, setOriginal] = useState(null);
     const waveformRef = useRef(null);
-    const wavesurferRef = useRef(null);
 
     const handleFileChange = (e) => {
         const file = e.target.files[0];
@@ -22,7 +20,6 @@ const KeyChange = ({items, setItems}) => {
         const reader = new FileReader();
         reader.onload = async (event) => {
         const audioBuffer = await Tone.context.decodeAudioData(event.target.result);
-        setAudioFile(audioBuffer);
 
         const audioPlayer = new Tone.Player(audioBuffer).toDestination();
         setOriginal(audioPlayer);
@@ -32,7 +29,7 @@ const KeyChange = ({items, setItems}) => {
             newPitches.push(new Tone.Player(audioBuffer).toDestination());
         }
 
-        setPitches(newPitches);
+            setPitches(newPitches);
         };
         reader.readAsArrayBuffer(file);
     };

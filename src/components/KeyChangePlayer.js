@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import WaveSurfer from 'wavesurfer.js';
-import '../styles/Accompaniment.css'
+import '../styles/KeyChange.css'
 
 const KeyChangePlayer = ({waveFile, waveformRef, pitches, original}) => {
     const [play, setPlay] = useState(false)
@@ -19,7 +19,7 @@ const KeyChangePlayer = ({waveFile, waveformRef, pitches, original}) => {
                 barGap: 2,
                 height: 30,
                 barHeight: 0,
-                interact: false,
+                // interact: false,
             });
 
             wavesurfer.load(URL.createObjectURL(waveFile));
@@ -71,6 +71,14 @@ const KeyChangePlayer = ({waveFile, waveformRef, pitches, original}) => {
         setFocus(newFocus)
     };
 
+    const handleWaveformClick = (event) => {
+        wavesurferRef.current.seekTo(event.nativeEvent.offsetX / waveformRef.current.clientWidth)
+        for (let i = 0; i < pitches.length; ++i) {
+            pitches[i].seek(wavesurferRef.current.getDuration() * (event.nativeEvent.offsetX / waveformRef.current.clientWidth))
+        }
+        original.seek(wavesurferRef.current.getDuration() * (event.nativeEvent.offsetX / waveformRef.current.clientWidth))
+    }
+
     return (
         <>
             <div className='player'>
@@ -84,7 +92,7 @@ const KeyChangePlayer = ({waveFile, waveformRef, pitches, original}) => {
                 </div>
                 
                 {waveFile && (
-                    <div className="uploadWave" ref={waveformRef}/> 
+                    <div className="uploadWave" ref={waveformRef} onClick={(event) => handleWaveformClick(event)}/> 
                 )}
                 {!waveFile && (
                     <div className='playerLine'></div>

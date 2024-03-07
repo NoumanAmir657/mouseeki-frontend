@@ -202,3 +202,51 @@
 .generateKaraokeBtn:hover {
     background-color: #FF8069;
 }
+
+.focusBtn {
+    width: 10%;
+
+    margin-left: 2%;
+    margin-top: 2%;
+
+    background-color: #F6654B;
+
+    border: 1px solid #F6654B;
+    border-radius: 10px;
+    
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+
+    color: #FFF;
+    font-family: 'Poppins';    
+    text-align: center;
+    font-size: x-small;
+    font-weight: 800;
+
+    cursor: pointer;
+}
+
+.unFocusBtn {
+    width: 10%;
+
+    margin-left: 2%;
+    margin-top: 2%;
+
+    border: 1px solid #F6654B;
+    border-radius: 10px;
+    
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+
+    color: #F6654B;
+    font-family: 'Poppins';    
+    text-align: center;
+    font-size: x-small;
+    font-weight: 800;
+
+    cursor: pointer;
+}

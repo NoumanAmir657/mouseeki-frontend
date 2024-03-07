@@ -13,6 +13,9 @@ const Karaoke = ({items, setItems}) => {
     const songRef = useRef(null)
     const instrumentalRef = useRef(null)
 
+    const [pitches, setPitches] = useState([])
+    const [original, setOriginal] = useState(null)
+
     const handleFileChange = (event) => {
         const selectedSong = event.target.files[0];
         if (selectedSong) {
@@ -51,10 +54,19 @@ const Karaoke = ({items, setItems}) => {
                 {song && (
                     <>
                         <Player waveFile={song} waveformRef={songRef}/>
-                        <GenerateKaraoke song={song} setInstrumental={setInstrumental} setLyrics={setLyrics} setWords={setWords}/>
+                        <GenerateKaraoke song={song} 
+                        setInstrumental={setInstrumental} 
+                        setLyrics={setLyrics} 
+                        setWords={setWords} 
+                        instrumental={instrumental}
+                        pitches={pitches}
+                        setPitches={setPitches}
+                        original={original}
+                        setOriginal={setOriginal}/>
+
                         {instrumental && lyrics && words && (
                             <>
-                                <KaraokePlayer waveFile={instrumental} waveformRef={instrumentalRef} lyrics={lyrics} words={words}/>
+                                <KaraokePlayer waveFile={instrumental} waveformRef={instrumentalRef} lyrics={lyrics} words={words} pitches={pitches} original={original}/>
                             </>
                         )}
                     </>
