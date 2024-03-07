@@ -5,6 +5,7 @@ import '../styles/Accompaniment.css'
 const KeyChangePlayer = ({waveFile, waveformRef, pitches, original}) => {
     const [play, setPlay] = useState(false)
     const wavesurferRef = useRef(null);
+    const [focus, setFocus] = useState([false, false, false, false, true])    
     
     useEffect(() => {
         if (waveFile) {
@@ -32,10 +33,8 @@ const KeyChangePlayer = ({waveFile, waveformRef, pitches, original}) => {
 
     const handlePlayPause = () => {
         if (!play) {
-            original.volume.value = 0
             original.start()
             for (let i = 0; i < pitches.length; ++i) {
-                pitches[i].volume.value = -Infinity
                 pitches[i].start();
             }
         }
@@ -50,19 +49,26 @@ const KeyChangePlayer = ({waveFile, waveformRef, pitches, original}) => {
     };
 
     const handlePitchChange = (index) => {
+        const newFocus = []
         for (let i = 0; i < pitches.length; ++i) {
-        if (index === i) {
-            pitches[i].volume.value = 0;
-        } else {
-            pitches[i].volume.value = -Infinity;
-        }
+            if (index === i) {
+                pitches[i].volume.value = 0;
+                newFocus.push(true)
+            } else {
+                pitches[i].volume.value = -Infinity;
+                newFocus.push(false)
+            }
         }
 
-        if (index === -1) {
+        if (index === 5) {
             original.volume.value = 0;
+            newFocus.push(true)
         } else {
             original.volume.value = -Infinity;
+            newFocus.push(false)
         }
+
+        setFocus(newFocus)
     };
 
     return (
@@ -86,15 +92,19 @@ const KeyChangePlayer = ({waveFile, waveformRef, pitches, original}) => {
             </div>
             
             <div className='shift'>
-                <div className='shiftBtn' onClick={() => handlePitchChange(0)}>Full Step Down</div>
-                <div className='shiftBtn' onClick={() => handlePitchChange(1)}>Half Step Down</div>
+                <div className={focus[0] ? `shiftBtn` : `aUploadSong`} onClick={() => handlePitchChange(0)}>Full Step Down</div>
+                <div className={focus[1] ? `shiftBtn` : `aUploadSong`} onClick={() => handlePitchChange(1)}>Half Step Down</div>
             </div>
 
-            <div style={{marginLeft: 'auto', marginRight: 'auto', marginTop: '4vh'}} className='shiftBtn' onClick={() => handlePitchChange(-1)}>Original</div>
+            <div style={{marginLeft: 'auto', marginRight: 'auto', marginTop: '4vh'}} 
+                className={focus[4] ? `shiftBtn` : `aUploadSong`} 
+                onClick={() => handlePitchChange(5)}>
+                Original
+            </div>
 
             <div className='shift'>
-                <div className='shiftBtn' onClick={() => handlePitchChange(2)}>Half Step Up</div>
-                <div className='shiftBtn' onClick={() => handlePitchChange(3)}>Full Step Up</div>
+                <div className={focus[2] ? `shiftBtn` : `aUploadSong`} onClick={() => handlePitchChange(2)}>Half Step Up</div>
+                <div className={focus[3] ? `shiftBtn` : `aUploadSong`} onClick={() => handlePitchChange(3)}>Full Step Up</div>
             </div>
 
         </>
