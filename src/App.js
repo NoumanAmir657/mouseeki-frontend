@@ -5,7 +5,8 @@ import Home from "./components/Home";
 import Accompaniment from "./components/Accompaniment";
 import SourceSeparator from "./components/SourceSeparator";
 import Karaoke from "./components/Karaoke";
-import KeyChange from "./components/KeyChange";
+import TextToMusic from "./components/TextToMusic";
+// import KeyChange from "./components/KeyChange";
 
 const BGFOCUSCOLOR = '#F6654B26'
 const FONTFOCUSCOLOR = '#F6654B'
@@ -32,7 +33,8 @@ const App = () => {
         <Route path='/accompaniment' element={<Accompaniment items={items} setItems={setItems}/>}/>
         <Route path='/sourceSeparation' element={<SourceSeparator items={items} setItems={setItems}/>}/>
         <Route path='/karaoke' element={<Karaoke items={items} setItems={setItems}/>}/>
-        <Route path='/keyChange' element={<KeyChange items={items} setItems={setItems}/>}/>
+        {/* <Route path='/keyChange' element={<KeyChange items={items} setItems={setItems}/>}/> */}
+        <Route path='/textToMusic' element={<TextToMusic items={items} setItems={setItems}/>}/>
         <Route path='/' element={<Home/>}/>
       </Routes>
     </Router>

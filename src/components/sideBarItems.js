@@ -33,20 +33,20 @@ const sideBarItems =
         text: 'Karaoke',
         link: '/karaoke',
     },
-    {
-        backgroundColor: BGCOLOR,
-        color: FONTCOLOR,
-        src: 'tabs.svg',
-        text: 'Guitar Tabs',
-        link: '/guitarTabs',
-    },
-    {
-        backgroundColor: BGCOLOR,
-        color: FONTCOLOR,
-        src: 'music.svg',
-        text: 'Key Change',
-        link: '/keyChange',
-    }
+    // {
+    //     backgroundColor: BGCOLOR,
+    //     color: FONTCOLOR,
+    //     src: 'tabs.svg',
+    //     text: 'Guitar Tabs',
+    //     link: '/guitarTabs',
+    // },
+    // {
+    //     backgroundColor: BGCOLOR,
+    //     color: FONTCOLOR,
+    //     src: 'music.svg',
+    //     text: 'Key Change',
+    //     link: '/keyChange',
+    // }
 ]
 
 export default sideBarItems;
